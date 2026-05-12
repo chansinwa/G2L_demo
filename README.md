@@ -1,4 +1,5 @@
 # TGX + Qt on Linux Integration Guide
+the TGX repo: https://github.com/vindar/tgx.git
 
 ## Purpose
 
