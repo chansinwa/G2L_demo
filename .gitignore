@@ -1,0 +1,15 @@
+# qmake / generated build files
+Makefile
+*.o
+moc_*.cpp
+moc_*.o
+moc_predefs.h
+ui_*.h
+qrc_*.cpp
+*qmake.stash
+
+# Qt Creator
+*pro.user
+*pro.user.*
+.qtc_clangd/
+
