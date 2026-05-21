@@ -13,7 +13,7 @@ Item {
     height: 480
 
     function resetCamera() {
-        camera.position = Qt.vector3d(0, 0, 500)
+        // camera.position = Qt.vector3d(0, 0, 500)
         cameraNode.eulerRotation = Qt.vector3d(0, 0, 0)
     }
 
@@ -35,31 +35,56 @@ Item {
                 clipNear: 1.0   // Fixes the triangular shadows
                 clipFar: 2000.0
             }
+
+            // By putting the light INSIDE the cameraNode,
+            // the light follows your eyes. No more dark backsides!
+            DirectionalLight {
+                id: headlamp
+                brightness: 1.5
+                eulerRotation.x: -10 // Points slightly down from the camera
+            }
+        }
+
+        OrbitCameraController {
+            origin: cameraNode
+            camera: camera
+            mouseEnabled: true
+            // wheelEnabled: true // This replaces your manual MouseArea wheel logic
         }
 
         DirectionalLight {
             eulerRotation.x: -30
-            brightness: 1.0
+            brightness: 0.5
+            position: Qt.vector3d(-200, 100, 200)
         }
 
+        // PointLight{
+        //     color: "#eef5ff"
+        //     brightness: 2.0
+        //     position: Qt.vector3d(-200, 100, 200)
+        // }
+
+        // PointLight{
+        //     color: "#ffffff"
+        //     brightness: 4.0
+        //     position: Qt.vector3d(100, 300, -100)
+        // }
+
         // The Coffee Cup
-        Model {
-            id: coffeeCup
-            source: "media/coffee_cup.mesh" // You need to export your model to .mesh
-            scale: Qt.vector3d(10, 10, 10)
-            materials: [
-                DefaultMaterial {
-                    diffuseColor: "white"
-                    specularAmount: 1.0
-                    shininess: 100
-                }
-            ]
+        Loader3D {
+            id: latte
+            source: "3Dmodel/convert_model/Latte.qml"
+            scale: Qt.vector3d(200,200,200)
+            position: Qt.vector3d(20, -80, -20)
+            eulerRotation.x: 20
+            eulerRotation.y: 0
+            eulerRotation.z: 0
         }
 
         // Orbit controls for Mouse Interaction (replaces mouseMoveEvent)
-        WasdControl {
-            controlledObject: cameraNode
-        }
+        // WasdControl {
+        //     controlledObject: cameraNode
+        // }
     }
 
     MouseArea {
@@ -68,4 +93,5 @@ Item {
             camera.z -= wheel.angleDelta.y * 0.5
         }
     }
+
 }

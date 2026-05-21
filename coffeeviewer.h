@@ -15,7 +15,7 @@ public:
 
 private:
     // Widget *m_3dWidget; //commented out TGX
-    QQuickWidget *m_3dQuickWidgets;
+    QQuickWidget *m_3dQuickWidget;
     QMediaPlayer* m_player;
     QVideoWidget* m_videoWidget;
 };

@@ -6,7 +6,8 @@
 #include <QFrame>
 #include <QStackedWidget>
 #include <QApplication>
-
+#include <QQmlContext>
+#include <QQuickItem>
 
 CoffeeViewer::CoffeeViewer(QWidget *parent) : QWidget(parent) {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
@@ -18,12 +19,17 @@ CoffeeViewer::CoffeeViewer(QWidget *parent) : QWidget(parent) {
     m_player->setVideoOutput(m_videoWidget);
     QString videoPath = QCoreApplication::applicationDirPath() + "/media/brew-coffee-resize.mp4";
 
-    m_player->setSource(QUrl::fromLocalFile(videoPath));
+    // m_player->setSource(QUrl::fromLocalFile(videoPath));
+
+    // --- NEW HARDWARE 3D SETUP ---
+    m_3dQuickWidget = new QQuickWidget(this);
+    m_3dQuickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    m_3dQuickWidget->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/coffee_scene.qml"));
 
     // 1. The 3D View (Left Side)
-    m_3dWidget = new Widget(this);
+    // m_3dWidget = new Widget(this);
 
-    stackedWidget->addWidget(m_3dWidget); //index 0
+    stackedWidget->addWidget(m_3dQuickWidget); //index 0
     stackedWidget->addWidget(m_videoWidget); //index 1
 
     mainLayout->addWidget(stackedWidget, 4); // Stretch factor 4
@@ -74,7 +80,12 @@ CoffeeViewer::CoffeeViewer(QWidget *parent) : QWidget(parent) {
     mainLayout->addWidget(sidebar);
 
     // 3. Connect UI to 3D Widget
-    connect(btnReset, &QPushButton::clicked, m_3dWidget, &Widget::resetView);
+    connect(btnReset, &QPushButton::clicked, this, [=](){
+        if (m_3dQuickWidget->rootObject()){
+            QMetaObject::invokeMethod(m_3dQuickWidget->rootObject(), "resetCamera", Qt::QueuedConnection);
+        }
+    });
+
     connect(btnExit, &QPushButton::clicked, [=](){
         m_player->stop();
         stackedWidget->setCurrentIndex(0);

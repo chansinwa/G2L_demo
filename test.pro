@@ -47,6 +47,20 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #QMAKE_LFLAGS += --sysroot=$$[QT_SYSROOT]
 
 DISTFILES += \
+    3Dmodel/coffee_cups_low_poly.glb \
+    3Dmodel/coffee_cups_low_poly/coffee_BLACK_baseColor.png \
+    3Dmodel/coffee_cups_low_poly/coffee_CAPPUCCINO_baseColor.png \
+    3Dmodel/coffee_cups_low_poly/coffee_LATTE_baseColor.png \
+    3Dmodel/coffee_cups_low_poly/coffee_cups_low_poly.mtl \
+    3Dmodel/convert_model/Latte.qml \
+    3Dmodel/convert_model/meshes/cube_050_mesh.mesh \
+    3Dmodel/convert_model/meshes/cube_051_mesh.mesh \
+    3Dmodel/convert_model/meshes/cylinder_028_mesh.mesh \
+    3Dmodel/convert_model/meshes/cylinder_029_mesh.mesh \
+    3Dmodel/latte.glb \
+    3Dmodel/low_poly_coffee_cup.glb \
+    3Dmodel/low_poly_coffee_cup/Coffee_baseColor.png \
+    3Dmodel/low_poly_coffee_cup/low_poly_coffee_cup.mtl \
     coffee_scene.qml \
     media/brew-coffee-resize.mp4 \
     mesh-1.obj \
