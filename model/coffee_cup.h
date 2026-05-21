@@ -9642,7 +9642,7 @@ const uint16_t coffee_cup_2_face[7501] PROGMEM = {
 
 
 // mesh info for object coffee_cup_2 (with tag [o defaultMaterial_1 | usemtl DefaultMaterial])
-const tgx::Mesh3D<tgx::RGB565> coffee_cup_2 PROGMEM = 
+const tgx::Mesh3D<tgx::RGB565> coffee_cup_2 PROGMEM =
     {
     1, // version/id
     
@@ -9650,31 +9650,31 @@ const tgx::Mesh3D<tgx::RGB565> coffee_cup_2 PROGMEM =
     2831, // number of texture coords
     2831, // number of normal vectors
     2304, // number of triangles
-    7501, // size of the face array. 
+    7501, // size of the face array.
 
     coffee_cup_vert_array, // array of vertices
     coffee_cup_tex_array, // array of texture coords
-    coffee_cup_norm_array, // array of normal vectors        
-    coffee_cup_2_face, // array of face vertex indexes   
+    coffee_cup_norm_array, // array of normal vectors
+    coffee_cup_2_face, // array of face vertex indexes
     
-    &coffee_cup_2_texture, // pointer to texture image 
+    &coffee_cup_texture, // pointer to texture image
     
     { 0.75f , 0.75f, 0.75f }, // default color
     
-    0.1f, // ambiant light strength 
+    0.1f, // ambiant light strength
     0.7f, // diffuse light strength
     0.6f, // specular light strength
     32, // specular exponent
     
-    nullptr, // next mesh to draw after this one    
+    nullptr, // next mesh to draw after this one
     
     { // mesh bounding box
-    -1.2904540300369263f, 1.2904540300369263f, 
-    -0.34775301819737137f, 0.03591205368704481f, 
+    -1.2904540300369263f, 1.2904540300369263f,
+    -0.34775301819737137f, 0.03591205368704481f,
     -1.2904540296458828f, 1.290454030427967f
     },
     
-    "coffee_cup" // model name    
+    "coffee_cup" // model name
     };
     
 
@@ -9694,7 +9694,7 @@ const tgx::Mesh3D<tgx::RGB565> coffee_cup_1 PROGMEM =
     coffee_cup_norm_array, // array of normal vectors        
     coffee_cup_1_face, // array of face vertex indexes   
     
-    &coffee_cup_texture, // pointer to texture image 
+    &coffee_cup_texture, // pointer to texture image
     
     { 0.75f , 0.75f, 0.75f }, // default color
     
@@ -9703,7 +9703,7 @@ const tgx::Mesh3D<tgx::RGB565> coffee_cup_1 PROGMEM =
     0.6f, // specular light strength
     32, // specular exponent
     
-    &coffee_cup_2, // next mesh to draw after this one    
+    &coffee_cup_2, // next mesh to draw after this one
     
     { // mesh bounding box
     -0.9976360201835632f, 0.9976360201835632f, 

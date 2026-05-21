@@ -1,14 +1,16 @@
 
 #include <QApplication>
-#include "widget.h"
+#include "coffeeviewer.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    Widget w;
-    w.resize(800, 600);
-    w.show();
+    CoffeeViewer viewer;
+    viewer.setWindowTitle("Coffee Brewing");
+//    viewer.showFullScreen();
+    viewer.resize(1000,400);
+    viewer.show();
 
     return app.exec();
 }
