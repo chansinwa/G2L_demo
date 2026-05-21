@@ -8,9 +8,9 @@ int main(int argc, char *argv[])
 
     CoffeeViewer viewer;
     viewer.setWindowTitle("Coffee Brewing");
-//    viewer.showFullScreen();
-    viewer.resize(1000,400);
-    viewer.show();
+    viewer.showFullScreen();
+    // viewer.resize(1280,480);
+    // viewer.show();
 
     return app.exec();
 }

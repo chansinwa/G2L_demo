@@ -52,11 +52,15 @@ DISTFILES += \
     3Dmodel/coffee_cups_low_poly/coffee_CAPPUCCINO_baseColor.png \
     3Dmodel/coffee_cups_low_poly/coffee_LATTE_baseColor.png \
     3Dmodel/coffee_cups_low_poly/coffee_cups_low_poly.mtl \
-    3Dmodel/convert_model/Latte.qml \
-    3Dmodel/convert_model/meshes/cube_050_mesh.mesh \
-    3Dmodel/convert_model/meshes/cube_051_mesh.mesh \
-    3Dmodel/convert_model/meshes/cylinder_028_mesh.mesh \
-    3Dmodel/convert_model/meshes/cylinder_029_mesh.mesh \
+    3Dmodel/convert_model/Latte/Latte.qml \
+    3Dmodel/convert_model/Latte/meshes/cube_050_mesh.mesh \
+    3Dmodel/convert_model/Latte/meshes/cube_051_mesh.mesh \
+    3Dmodel/convert_model/Latte/meshes/cylinder_028_mesh.mesh \
+    3Dmodel/convert_model/Latte/meshes/cylinder_029_mesh.mesh \
+    3Dmodel/convert_model/low_poly_coffee/Low_poly_coffee_cup.qml \
+    3Dmodel/convert_model/low_poly_coffee/maps/textureData.png \
+    3Dmodel/convert_model/low_poly_coffee/meshes/cylinder_0_mesh.mesh \
+    3Dmodel/convert_model/low_poly_coffee/meshes/cylinder_1_mesh.mesh \
     3Dmodel/latte.glb \
     3Dmodel/low_poly_coffee_cup.glb \
     3Dmodel/low_poly_coffee_cup/Coffee_baseColor.png \

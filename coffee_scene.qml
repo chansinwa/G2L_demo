@@ -21,7 +21,7 @@ Item {
         anchors.fill: parent
 
         environment: SceneEnvironment {
-            clearColor: "#00FFFF" // Cyan like your TGX code
+            clearColor: "#CCADA7"
             backgroundMode: SceneEnvironment.Color
             antialiasingMode: SceneEnvironment.MSAA
             antialiasingQuality: SceneEnvironment.High
@@ -38,6 +38,7 @@ Item {
 
             // By putting the light INSIDE the cameraNode,
             // the light follows your eyes. No more dark backsides!
+
             DirectionalLight {
                 id: headlamp
                 brightness: 1.5
@@ -50,6 +51,8 @@ Item {
             camera: camera
             mouseEnabled: true
             // wheelEnabled: true // This replaces your manual MouseArea wheel logic
+            xSpeed: 0.2
+            ySpeed: 0.2
         }
 
         DirectionalLight {
@@ -72,13 +75,19 @@ Item {
 
         // The Coffee Cup
         Loader3D {
-            id: latte
-            source: "3Dmodel/convert_model/Latte.qml"
-            scale: Qt.vector3d(200,200,200)
-            position: Qt.vector3d(20, -80, -20)
+            // id: latte
+            // source: "3Dmodel/convert_model/Latte/Latte.qml"
+            // scale: Qt.vector3d(200,200,200)
+
+            id: lowpolycoffee
+            source: "3Dmodel/convert_model/low_poly_coffee/Low_poly_coffee_cup.qml"
+            scale: Qt.vector3d(150,150,150)
+
+            position: Qt.vector3d(20, -50, -20)
             eulerRotation.x: 20
             eulerRotation.y: 0
             eulerRotation.z: 0
+
         }
 
         // Orbit controls for Mouse Interaction (replaces mouseMoveEvent)
@@ -90,7 +99,8 @@ Item {
     MouseArea {
         anchors.fill: parent
         onWheel: (wheel) => {
-            camera.z -= wheel.angleDelta.y * 0.5
+            let newZ = camera.z - wheel.angleDelta.y * 0.5
+            camera.z = Math.max(100, Math.min(newZ, 1500))
         }
     }
 
